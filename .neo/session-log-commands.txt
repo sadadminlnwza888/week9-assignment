@@ -1,0 +1,13 @@
+gh repo create week9-assignment --public --source=. --push
+gh api repos/sadadminlnwza888/week9-assignment/pages -X POST -f build_type=workflow -f source.branch=main -f source.path=/ 2>/dev/null || gh api repos/sadadminlnwza888/week9-assignment/pages -X POST -f source.branch=main -f source.path=/
+gh api repos/sadadminlnwza888/week9-assignment/pages
+gh api repos/sadadminlnwza888/week9-assignment/actions/runs --jq '.workflow_runs | length'
+gh api repos/sadadminlnwza888/week9-assignment/pages -X DELETE
+gh api repos/sadadminlnwza888/week9-assignment/pages -X POST -f "source[branch]=main" -f "source[path]=/"
+sleep 15 && gh api repos/sadadminlnwza888/week9-assignment/pages --jq '.status'
+cp "/Users/worapat47/Downloads/ChatGPT Image 16 มี.ค. 2569 16_23_54.png" /Users/worapat47/Desktop/week9-assignment/img/logo.png
+git add img/logo.png index.html && git commit -m "เปลี่ยนโลโก้เป็น SPU Movie" && git push
+which rembg 2>/dev/null || pip3 list 2>/dev/null | grep -i rembg
+python3 -m venv /tmp/rembg-env && source /tmp/rembg-env/bin/activate && pip install 'rembg[cli]' pillow
+source /tmp/rembg-env/bin/activate && pip install 'rembg[cpu]'
+cp "/Users/worapat47/Downloads/ChatGPT_Image_16_มี.ค._2569_16_23_54-removebg-preview.png" /Users/worapat47/Desktop/week9-assignment/img/logo.png
